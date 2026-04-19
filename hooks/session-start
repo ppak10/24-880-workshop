@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# SessionStart hook for workshop-extension
+# Launches the weather GUI server in the background on session start.
+
+set -uo pipefail
+
+PLUGIN_DIR="${CLAUDE_PLUGIN_ROOT:-$(cd "$(dirname "$0")/.." && pwd)}"
+
+# Start the GUI server (non-blocking — lifecycle spawns a daemon and exits quickly).
+uv run --directory "${PLUGIN_DIR}" python -c "
+from workshop_extension.gui.lifecycle import start_gui_server
+start_gui_server()
+" 2>/dev/null || true
+
+# Output injected into agent context as XML.
+cat <<EOF
+<workshop-extension-status>
+  <status>ready</status>
+  <gui>http://127.0.0.1:24880</gui>
+  <tools>weather_check, transit_arrivals, transit_stops, gui_server</tools>
+</workshop-extension-status>
+EOF

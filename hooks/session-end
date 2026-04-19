@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# SessionEnd hook for workshop-extension
+# Add cleanup logic here.
+
+set -euo pipefail
+
+exit 0

@@ -1,0 +1,16 @@
+{
+  "name": "workshop-extension",
+  "description": "A workshop extension for Claude Code and Gemini CLI",
+  "version": "0.1.0",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "workshop-extension": {
+      "command": "uv",
+      "args": ["run", "--directory", "${extensionPath}", "python", "-m", "workshop_extension.mcp"],
+      "env": {
+        "PYTHONPATH": "${extensionPath}/src",
+        "WORKSHOP_PROJECT_DIR": "${workspacePath}"
+      }
+    }
+  }
+}

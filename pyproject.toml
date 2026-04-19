@@ -1,0 +1,26 @@
+[project]
+name = "workshop-extension"
+version = "0.1.0"
+description = "A workshop extension for Claude Code and Gemini CLI"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.12.3",
+    "httpx>=0.27.0",
+    "aiohttp>=3.9.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/ppak10/24-880-workshop"
+Issues = "https://github.com/ppak10/24-880-workshop/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv]
+# Add any dependency overrides here if needed
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.1",
+]

@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "workshop-extension": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "/Users/ppak/GitHub/24-880-workshop",
+        "python",
+        "-m",
+        "workshop_extension.mcp"
+      ],
+      "env": {
+        "PYTHONPATH": "/Users/ppak/GitHub/24-880-workshop/src"
+      }
+    }
+  }
+}
